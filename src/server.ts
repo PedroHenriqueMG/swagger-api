@@ -1,5 +1,6 @@
 import Express from "express";
 import swaggerui from "swagger-ui-express";
+import swaggerdocs from "./swagger.json";
 import { document } from "./swagger/swagger";
 
 const app = Express();
@@ -10,7 +11,7 @@ app.get("/", (req, res) => {
   res.send("API rodando");
 });
 
-app.use("/docs", swaggerui.serve, swaggerui.setup(document));
+app.use("/docs", swaggerui.serve, swaggerui.setup(swaggerdocs));
 
 app.listen(PORT, () => {
   console.log(`API rodando na porta: ${PORT}`);
