@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   res.send("API rodando");
 });
 
-app.use("/docs", swaggerui.serveFiles(document), swaggerui.setup());
+app.use("/docs", swaggerui.serve, swaggerui.setup(document));
 
 app.listen(PORT, () => {
   console.log(`API rodando na porta: ${PORT}`);
